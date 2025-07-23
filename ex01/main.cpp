@@ -6,7 +6,7 @@
 /*   By: cwolf <cwolf@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 17:19:32 by cwolf             #+#    #+#             */
-/*   Updated: 2025/07/22 10:27:19 by cwolf            ###   ########.fr       */
+/*   Updated: 2025/07/23 11:06:11 by cwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,29 +16,32 @@
 
 int main()
 {
-	std::cout << "=== Creating ClapTrap ===" << std::endl;
 	ClapTrap ct("Clappy");
-
-	std::cout << "\n=== Creating ScavTrap ===" << std::endl;
 	ScavTrap st("Scavy");
+	std::cout << std::endl;
 
-	std::cout << "\n=== Testing ClapTrap ===" << std::endl;
+	//testing ClapTrap
 	ct.attack("First Dummy");
 	ct.takeDamage(5);
 	ct.beRepaired(3);
+	ct.printStatus();
+	std::cout << std::endl;
 
-	std::cout << "\n=== Testing ScavTrap ===" << std::endl;
+	//testing ClapTrap
 	st.attack("Second Dummy");
 	st.takeDamage(20);
 	st.beRepaired(10);
 	st.guardGate();
+	st.printStatus();
+	std::cout << std::endl;
 
-	std::cout << "\n=== Copy & Assignment Test ===" << std::endl;
-	ScavTrap st2 = st; // copy constructor
+	//Copy Assignment Test
+	ScavTrap st2 = st;
+	std::cout << std::endl;
+
 	ScavTrap st3;
-	st3 = st; // assignment operator
-
-	std::cout << "\n=== Destructors Called Automatically ===" << std::endl;
+	st3 = st;
+	std::cout << std::endl;
 
 	return 0;
 }

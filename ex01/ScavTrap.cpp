@@ -6,7 +6,7 @@
 /*   By: cwolf <cwolf@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 17:50:04 by cwolf             #+#    #+#             */
-/*   Updated: 2025/07/22 10:28:33 by cwolf            ###   ########.fr       */
+/*   Updated: 2025/07/23 10:59:32 by cwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ ScavTrap::ScavTrap() : ClapTrap()
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 {
-	std::cout << "ScavTrap default constructor called for " << name << std::endl;
+	std::cout << "ScavTrap default constructor called" << std::endl;
 	_name = name;
 	_healthPoints = 100;
 	_energyPoints = 50;
@@ -32,7 +32,7 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 
 ScavTrap::ScavTrap(const ScavTrap& other) : ClapTrap(other)
 {
-	std::cout << "ScavTrap copy constructor called for " << _name << std::endl;
+	std::cout << "ScavTrap copy constructor called" << std::endl;
 }
 
 ScavTrap::~ScavTrap(){};
@@ -52,11 +52,11 @@ void ScavTrap::attack(const std::string& target)
 	if (this->_energyPoints >= 1)
 		this->_energyPoints -= 1;
 	if (this->_healthPoints && this->_energyPoints)
-		std::cout << "ScavTrap: " << target << " loses " << this->_attackDamage << " health points!" << std::endl;
-	else if (this->_healthPoints <= 0)
-		std::cout << "ScavTrap: No health points left!" << std::endl;
-	else if (this->_energyPoints)
-		std::cout << "ScavTrap: No energy points left!" << std::endl;
+		std::cout << "ScavTrap " << _name << " attacks " << target << ", which loses " << this->_attackDamage << " health points!" << std::endl;
+	else if (this->_healthPoints == 0)
+		std::cout << "ScavTrap: Attack failed! " << _name << " has no health points left to attack!" << std::endl;
+	else if (this->_energyPoints == 0)
+		std::cout << "ScavTrap: Attack failed! " << _name << " has no energy points left to attack!" << std::endl;
 }
 
 void ScavTrap::guardGate()

@@ -6,39 +6,41 @@
 /*   By: cwolf <cwolf@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 17:19:32 by cwolf             #+#    #+#             */
-/*   Updated: 2025/07/22 13:43:54 by cwolf            ###   ########.fr       */
+/*   Updated: 2025/07/23 13:03:30 by cwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 #include <iostream>
 
 int main()
 {
-	std::cout << "=== Creating ClapTrap ===" << std::endl;
-	ClapTrap ct("Clappy");
+	ClapTrap clap("Clappy");
+	ScavTrap scav("Scavy");
+	FragTrap frag("Fraggy");
+	std::cout << std::endl;
+	
+	clap.attack("Target A");
+	scav.attack("Target B");
+	frag.attack("Target C");
+	std::cout << std::endl;
+	
+	clap.takeDamage(3);
+	scav.takeDamage(4);
+	frag.takeDamage(5);
+	std::cout << std::endl;
+	
+	clap.beRepaired(2);
+	scav.beRepaired(3);
+	frag.beRepaired(4);
+	clap.printStatus();
+	scav.printStatus();
+	frag.printStatus();
 
-	std::cout << "\n=== Creating ScavTrap ===" << std::endl;
-	ScavTrap st("Scavy");
-
-	std::cout << "\n=== Testing ClapTrap ===" << std::endl;
-	ct.attack("First Dummy");
-	ct.takeDamage(5);
-	ct.beRepaired(3);
-
-	std::cout << "\n=== Testing ScavTrap ===" << std::endl;
-	st.attack("Second Dummy");
-	st.takeDamage(20);
-	st.beRepaired(10);
-	st.guardGate();
-
-	std::cout << "\n=== Copy & Assignment Test ===" << std::endl;
-	ScavTrap st2 = st; // copy constructor
-	ScavTrap st3;
-	st3 = st; // assignment operator
-
-	std::cout << "\n=== Destructors Called Automatically ===" << std::endl;
-
+	//special functions
+	scav.guardGate();
+	frag.highFiveGuys();
 	return 0;
 }

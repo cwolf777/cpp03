@@ -6,7 +6,7 @@
 /*   By: cwolf <cwolf@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 10:44:14 by cwolf             #+#    #+#             */
-/*   Updated: 2025/07/22 10:59:48 by cwolf            ###   ########.fr       */
+/*   Updated: 2025/07/23 13:03:55 by cwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,11 @@ FragTrap::FragTrap(const FragTrap &other) : ClapTrap(other)
 	std::cout << "FragTrap copy constructor called for " << _name << std::endl;
 }
 
+FragTrap::~FragTrap()
+{
+	std::cout << "FragTrap Destructor called" << std::endl;
+};
+
 FragTrap& FragTrap::operator=(const FragTrap &other)
 {
 	if (this != &other)
@@ -47,5 +52,5 @@ FragTrap& FragTrap::operator=(const FragTrap &other)
 
 void FragTrap::highFiveGuys(void)
 {
-	std::cout << "FragTrap" << _name << "gets his well earned high fives!" << std::endl;
+	std::cout << "FragTrap " << _name << " gets his well earned high fives!" << std::endl;
 }

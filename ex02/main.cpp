@@ -6,7 +6,7 @@
 /*   By: cwolf <cwolf@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 17:19:32 by cwolf             #+#    #+#             */
-/*   Updated: 2025/07/23 13:03:30 by cwolf            ###   ########.fr       */
+/*   Updated: 2025/07/23 13:59:47 by cwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,7 @@ int main()
 	//special functions
 	scav.guardGate();
 	frag.highFiveGuys();
+	std::cout << std::endl;
+	
 	return 0;
 }

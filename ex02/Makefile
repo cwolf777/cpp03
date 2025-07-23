@@ -3,7 +3,7 @@ CXXFLAGS = -Wall -Wextra -Werror -std=c++17
 
 NAME = fixed
 
-SRCS = ClapTrap.cpp main.cpp 
+SRCS = ClapTrap.cpp main.cpp ScavTrap.cpp FragTrap.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 all: $(NAME)

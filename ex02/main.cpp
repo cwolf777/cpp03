@@ -6,57 +6,39 @@
 /*   By: cwolf <cwolf@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 17:19:32 by cwolf             #+#    #+#             */
-/*   Updated: 2025/07/23 10:31:34 by cwolf            ###   ########.fr       */
+/*   Updated: 2025/07/22 13:43:54 by cwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 #include <iostream>
 
 int main()
 {
-	// Create two ClapTraps
-	ClapTrap bob("Bob");
-	ClapTrap alice("Alice");
-	ClapTrap noname;
+	std::cout << "=== Creating ClapTrap ===" << std::endl;
+	ClapTrap ct("Clappy");
 
-	// Print initial status
-	bob.printStatus();
-	alice.printStatus();
-	noname.printStatus();
+	std::cout << "\n=== Creating ScavTrap ===" << std::endl;
+	ScavTrap st("Scavy");
 
-	// attacks 
-	bob.attack("Dummy");
-	alice.attack("Dummy");
+	std::cout << "\n=== Testing ClapTrap ===" << std::endl;
+	ct.attack("First Dummy");
+	ct.takeDamage(5);
+	ct.beRepaired(3);
 
-	std::cout << std::endl;
+	std::cout << "\n=== Testing ScavTrap ===" << std::endl;
+	st.attack("Second Dummy");
+	st.takeDamage(20);
+	st.beRepaired(10);
+	st.guardGate();
 
-	bob.printStatus();
-	alice.printStatus();
+	std::cout << "\n=== Copy & Assignment Test ===" << std::endl;
+	ScavTrap st2 = st; // copy constructor
+	ScavTrap st3;
+	st3 = st; // assignment operator
 
-	std::cout << std::endl;	
-	//take damage
-	bob.takeDamage(5);
-	alice.takeDamage(11);
-	
-	std::cout << std::endl;
-	//repairs themself
-	bob.beRepaired(3);
-	alice.beRepaired(3);
-	bob.printStatus();
-	alice.printStatus();
+	std::cout << "\n=== Destructors Called Automatically ===" << std::endl;
 
-	std::cout << std::endl;
-
-	// Alice tries to attack with 0 HP
-	alice.attack("Dummy");
-	bob.attack("Dummy");
-
-	// Bob tries to repair with no energy
-	for (int i = 0; i < 11; ++i)
-		bob.beRepaired(1);
-	bob.printStatus();
-	alice = bob;
-	alice.printStatus();
 	return 0;
 }
